@@ -56,9 +56,9 @@ end
 
 patch("/stylists/:id") do
   name = params.fetch("name")
-  @stylist = Styist.find(params.fetch("id").to_i())
+  @stylist = Stylist.find(params.fetch("id").to_i())
   @stylist.update({:name => name})
-  erb(:stylist)
+  erb(:index)
 end
 
 
