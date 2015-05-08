@@ -35,13 +35,13 @@ class Client
      @name = attributes.fetch(:name)
      DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
      @stylist_id = attributes.fetch(:stylist_id)
-     DB.exec("UPDATE clients SET stylist_id = '#{@stylist_id}' WHERE id = #{@id};")
+    #  DB.exec("UPDATE clients SET stylist_id = '#{@stylist_id}' WHERE id = #{@id};")
    end
 
 
    def delete
      DB.exec("DELETE FROM clients WHERE id = #{@id};")
-     DB.exec("DELETE FROM stops WHERE stylist_id = #{@id}")
+     
    end
 
 
