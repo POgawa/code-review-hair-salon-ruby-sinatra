@@ -1,0 +1,11 @@
+<h1><%= @stylist.name() %> Details</h1>
+
+<h4><%= @stylist.name()%>:</h4>
+<ul>
+  <% @stylist.clients.each do |client| %>
+    <li><%= client.name %></li>
+  <% end %>
+</ul>
+
+<a href="/stylist/<%= @stylist.id %>/new">Add a client</a>
+<a href="/stylists">View stylists</a>
