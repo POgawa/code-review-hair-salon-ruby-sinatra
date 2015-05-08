@@ -44,7 +44,7 @@ post('/stylist/:id') do
   stylist_id = params.fetch("id").to_i
   new_client = Client.new({:name => name, :stylist_id => stylist_id, :id => nil})
   new_client.save
-  @stylist = Stylist.find(stylist_id)
+  @stylist = Stylist.find(params.fetch('id'))
   erb(:clients)
 end
 

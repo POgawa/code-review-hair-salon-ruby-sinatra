@@ -34,7 +34,7 @@ class Client
   def update(attributes)
      @name = attributes.fetch(:name)
      DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
-     
+
    end
 
 

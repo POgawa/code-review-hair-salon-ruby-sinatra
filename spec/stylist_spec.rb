@@ -37,5 +37,7 @@ describe(Stylist) do
       expect(test_stylist.clients).to eq([test_task])
     end
 
+
+
   end
 end

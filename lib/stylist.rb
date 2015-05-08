@@ -25,12 +25,15 @@ class Stylist
 
   def save
     result = DB.exec("INSERT INTO stylists (name) VALUES ('#{@name}') RETURNING id;")
+
+
     @id = result.first().fetch("id").to_i
   end
 
   def self.find(id)
     result = DB.exec("SELECT * FROM stylists WHERE id = #{id};")
     id = result.first.fetch("id").to_i
+    name = result.first.fetch("name")
     found_list = Stylist.new({:name => name, :id => id})
   end
 
