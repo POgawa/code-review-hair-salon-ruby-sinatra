@@ -30,7 +30,6 @@ class Stylist
 
   def self.find(id)
     result = DB.exec("SELECT * FROM stylists WHERE id = #{id};")
-    name = result.first().fetch("name")
     id = result.first.fetch("id").to_i
     found_list = Stylist.new({:name => name, :id => id})
   end
