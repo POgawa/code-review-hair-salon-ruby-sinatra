@@ -8,12 +8,13 @@ require "pg"
 DB = PG.connect({:dbname => "hair_salon"})
 
 get('/') do
+
   erb(:index)
 end
 
 get('/stylists') do
   @stylists = Stylist.all()
-  erb(:stylists)
+  erb(:stylist)
 end
 
 get('/stylist/new') do
@@ -30,7 +31,7 @@ post('/stylists') do
   new_stylist = Stylist.new({:name => name, :id => nil})
   new_stylist.save()
   @stylists = Stylist.all()
-  erb(:stylists)
+  erb(:stylist)
 end
 
 get('/stylist/:id/new') do
@@ -45,4 +46,25 @@ post('/stylist/:id') do
   new_client.save
   @stylist = Stylist.find(stylist_id)
   erb(:clients)
+end
+
+get("/stylists/:id/edit") do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  erb(:stylists_edit)
+end
+
+
+patch("/stylists/:id") do
+  name = params.fetch("name")
+  @stylist = Styist.find(params.fetch("id").to_i())
+  @stylist.update({:name => name})
+  erb(:stylist)
+end
+
+
+delete("/stylists/:id") do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist.delete()
+  @stylists = Stylist.all()
+  erb(:index)
 end
