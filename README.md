@@ -1,10 +1,10 @@
-# {Add title of project here}
+# Hair Salon Code Review
 
 ## Contributor(s):
 1. Paul Ogawa (https://github.com/Pogawa)
 
 ##Date:
-
+May 7, 2015
 ## Installation
 
 
