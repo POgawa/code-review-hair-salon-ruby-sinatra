@@ -1,0 +1,12 @@
+<h1 class="text-left page-header">Stylists</h1>
+<% if @stylists != nil%>
+  <h3>Here are you current stylists:</h3>
+  <ul>
+  <% @stylists.each do |stylist| %>
+    <li><a href="/stylist/<%=stylist.id %>"><%= stylist.name %></a></li>
+  <% end %>
+  </ul>
+<%else%>
+  <h2>You have no stylists</h2>
+<%end%>
+<p><a href="/stylist/new">Add a Styist</a></p>

@@ -2,7 +2,8 @@ class Stylist
   attr_reader :name, :id
 
   def initialize(attributes)
-    @name = attributes.fetch(:name)
+    name = attributes.fetch(:name)
+    @name = name.split.map(&:capitalize).join(' ')
     @id = attributes.fetch(:id)
   end
 
